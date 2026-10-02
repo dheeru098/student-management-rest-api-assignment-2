@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/students/{{studentId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name":"Neha Updated","course":"BTech"}'
+scripts:
+  - type: afterResponse
+    code: pm.test('Status is 200', function () { pm.response.to.have.status(200); });
+order: 4000

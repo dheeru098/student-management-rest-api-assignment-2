@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/students"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name":"Only Name"}'
+scripts:
+  - type: afterResponse
+    code: pm.test('Status is 400', function () { pm.response.to.have.status(400); });
+order: 6000
